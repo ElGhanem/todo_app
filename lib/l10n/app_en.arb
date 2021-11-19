@@ -4,5 +4,7 @@
     "language": "Language",
     "mode": "Mode",
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "delete": "Delete",
+    "newTask": "Add New Task"
 }

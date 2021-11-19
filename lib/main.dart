@@ -5,8 +5,11 @@ import 'package:provider/provider.dart';
 import 'package:todo_app/Home/homescreen.dart';
 import 'package:todo_app/mythemedata.dart';
 import 'package:todo_app/providers/appconfigpovider.dart';
+import 'package:todo_app/userpreferences.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await UserPreferences.init();
   runApp(
       ChangeNotifierProvider(
         create: (context)=>AppConfigProvider(),

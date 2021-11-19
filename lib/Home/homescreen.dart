@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/Home/List/list.dart';
 import 'package:todo_app/Home/Settings/settings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todo_app/Home/addtodobottomsheet.dart';
+import 'package:todo_app/userpreferences.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = 'home';
@@ -17,7 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: (){},
+        onPressed: (){
+          showAddToDoBottomSheet();
+          print(UserPreferences.getUserLang());
+        },
         elevation: 15,
         shape: StadiumBorder(
           side: BorderSide(
@@ -66,5 +71,16 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       return Container();
     }
+  }
+
+  showAddToDoBottomSheet() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return AddTodoBottomSheet();
+      },
+      backgroundColor: Colors.transparent,
+      elevation: 0
+    );
   }
 }
