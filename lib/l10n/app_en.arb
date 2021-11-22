@@ -12,5 +12,7 @@
     "selectTime": "Select Date",
     "titleErr": "Please Enter Title Here",
     "descriptionErr": "Please Enter Description Here",
-    "done": "Done!"
+    "done": "Done!",
+    "editTask": "Edit Task",
+    "save": "Save Changes"
 }

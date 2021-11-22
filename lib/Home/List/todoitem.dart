@@ -3,6 +3,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:todo_app/Database/Models/todo.dart';
 import 'package:todo_app/Database/firebaseutils.dart';
+import 'package:todo_app/Edit/editscreen.dart';
 import 'package:todo_app/providers/appconfigpovider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:todo_app/providers/listprovider.dart';
@@ -65,25 +66,29 @@ class TodoItem extends StatelessWidget {
                 .of(context)
                 .primaryColor, thickness: 4,),
             SizedBox(width: 15,),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(item.title, style: TextStyle(color: item.isDone ? Color(0xff61E757) :Theme
-                    .of(context)
-                    .primaryColor, fontSize: 18, fontWeight: FontWeight.bold),),
-                Container(
-                    margin: EdgeInsets.only(top: 15),
-                    child: Text(
-                        item.description, style: TextStyle(color: Theme
-                        .of(context)
-                        .colorScheme
-                        .secondary))
-                )
-              ],
+            InkWell(
+              onTap: () {
+                Navigator.pushNamed(context, EditScreen.routeName, arguments: item);
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(item.title, style: TextStyle(color: item.isDone ? Color(0xff61E757) :Theme
+                      .of(context)
+                      .primaryColor, fontSize: 18, fontWeight: FontWeight.bold),),
+                  Container(
+                      margin: EdgeInsets.only(top: 15),
+                      child: Text(
+                          item.description, style: TextStyle(color: Theme
+                          .of(context)
+                          .colorScheme
+                          .secondary))
+                  )
+                ],
+              ),
             ),
             Spacer(),
-            item.isDone == false ?
-            InkWell(
+            item.isDone == false ? InkWell(
               onTap: () {
                 getTodosRefWithConverters().doc(item.id).update({'isDone': true });
                 listProvider.refreshTodos(1);
