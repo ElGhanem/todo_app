@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/Home/List/list.dart';
+import 'package:todo_app/Home/List/listitems.dart';
 import 'package:todo_app/Home/Settings/settings.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:todo_app/Home/addtodobottomsheet.dart';
@@ -21,7 +21,6 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           showAddToDoBottomSheet();
-          print(UserPreferences.getUserLang());
         },
         elevation: 15,
         shape: StadiumBorder(
@@ -65,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getMainView() {
     if(selectedIndex == 0) {
-      return List();
+      return ListItems();
     } else if(selectedIndex == 1) {
       return Settings();
     } else {
