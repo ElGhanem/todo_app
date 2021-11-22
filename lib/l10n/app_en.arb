@@ -1,0 +1,16 @@
+{
+    "app_bar_title1": "To Do List",
+    "app_bar_title2": "Settings",
+    "language": "Language",
+    "mode": "Mode",
+    "light": "Light",
+    "dark": "Dark",
+    "delete": "Delete",
+    "newTask": "Add New Task",
+    "title": "Enter Task Title",
+    "description": "Enter Task Description",
+    "selectTime": "Select Date",
+    "titleErr": "Please Enter Title Here",
+    "descriptionErr": "Please Enter Description Here",
+    "done": "Done!"
+}
